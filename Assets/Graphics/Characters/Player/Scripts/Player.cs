@@ -64,4 +64,12 @@ public class Player : MonoBehaviour
                 m_an.SetBool("Empowered", true);
         }
     }
+
+    public bool CanPossess
+    {
+        get
+        {
+            return Power >= powerAmountToPossess;
+        }
+    }
 }
