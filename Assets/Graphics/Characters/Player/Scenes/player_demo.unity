@@ -809,6 +809,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1931684702232550703, guid: ef076c8160fb9de4eb0949063412fe50,
+        type: 3}
+      propertyPath: powerAmountToPossess
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2541993737739189422, guid: ef076c8160fb9de4eb0949063412fe50,
         type: 3}
       propertyPath: m_LocalPosition.y

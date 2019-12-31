@@ -5,6 +5,10 @@
 [RequireComponent(typeof(Animator))]
 public class Priest : MonoBehaviour
 {
+
+    [SerializeField]
+    Transform punch = null;
+
     [SerializeField]
     float speed = 10f;
 
@@ -17,10 +21,10 @@ public class Priest : MonoBehaviour
     Rigidbody2D m_rb = null;
     SpriteRenderer m_sp = null;
     Animator m_an = null;
+    Animator m_pan = null;
 
     float lasth = 1f;
     float lastv = -1f;
-    int power = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,9 @@ public class Priest : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         m_sp = GetComponent<SpriteRenderer>();
         m_an = GetComponent<Animator>();
+
+        if (punch)
+            m_pan = punch.GetComponent<Animator>();
 
         switch (type)
         {
@@ -60,11 +67,14 @@ public class Priest : MonoBehaviour
         if(playerControllable)
             move = new Vector2(h * speed, v * speed);
 
-        if (m_sp && playerControllable)
+        if (playerControllable && m_sp)
             m_sp.flipX = lasth < 0f;
 
         if(playerControllable)
         {
+            if (Input.GetButtonDown("Fire1") && punch)
+                m_pan.SetTrigger("Punch");
+
             m_an.SetBool("FacingDown", lastv < 0f);
 
             if (m_rb.velocity.x != 0f)
@@ -83,7 +93,23 @@ public class Priest : MonoBehaviour
                 }
             }
         }
-            
+
+        if (move.x > 0 && move.x > move.y) // moving right
+        {
+            punch.rotation = Quaternion.Euler(Vector3.forward * 0);
+        }
+        else if (move.x < 0 && move.x < move.y) // moving left
+        {
+            punch.rotation = Quaternion.Euler(Vector3.forward * 180);
+        }
+        else if (move.y > 0 && move.y > move.x) // moving up
+        {
+            punch.rotation = Quaternion.Euler(Vector3.forward * 90);
+        }
+        else if (move.y < 0 && move.y < move.x) // moving down
+        {
+            punch.rotation = Quaternion.Euler(Vector3.forward * 270);
+        }
     }
 
     void FixedUpdate()
