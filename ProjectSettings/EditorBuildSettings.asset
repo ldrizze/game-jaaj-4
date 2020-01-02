@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Graphics/Characters/Player/Scenes/player_demo.unity
     guid: 6130feb7da19d37478c8a2053b808b6b
+  - enabled: 1
+    path: Assets/Graphics/Screens/Credits/Scenes/Credits.unity
+    guid: f9eec48bd3cf41844b580e04e50dae9d
   m_configObjects: {}
