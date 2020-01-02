@@ -742,7 +742,7 @@ MonoBehaviour:
   m_Text: "<color=#F3A031>GAME DESIGN</color>\r\nCleyton Luis \"Creyto\" Palauro\r\n<color=#FF0497><cleytonresc@hotmail.com></color>\r\nLuis
     Henrique \"Louie\" Fedrizze\r\n<color=#FF0497><luisfedrizze@gmail.com></color>\r\nMatheus
     Alvarez \"T\xEAco\" Crivellari\r\n<color=#FF0497><matheus.acrivellari@gmail.com></color>\r\nMatheus
-    Arantes Nunes\r\n<color=#FF0497><matheusan@gmail.com></color>"
+    Arantes \"Nunces\" Nunes\r\n<color=#FF0497><matheusan@live.com></color>"
 --- !u!222 &1229457645
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1210,7 +1210,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.25
   m_Text: "<color=#F3A031>ARTE</color>\r\nMatheus Alvarez \"T\xEAco\" Crivellari\r\n<color=#FF0497><matheus.acrivellari@gmail.com></color>\r\nMatheus
-    Arantes \"Nunces\" Nunes\r\n<color=#FF0497><matheusan@gmail.com></color>"
+    Arantes \"Nunces\" Nunes\r\n<color=#FF0497><matheusan@live.com></color>"
 --- !u!222 &1644369937
 CanvasRenderer:
   m_ObjectHideFlags: 0
