@@ -22,7 +22,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        if (DontDestroy.Instance)
+        {
+            Destroy(DontDestroy.Instance.gameObject);
+        }
     }
 
     void Update()
