@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     float lasth = 0f;
     int power = 0;
 
+    // CLP Update!
+    public static bool zeroPower = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,13 @@ public class Player : MonoBehaviour
 
         if (m_sp)
             m_sp.flipX = lasth < 0f;
+
+        // CLP Update!
+        if (zeroPower)
+        {
+            zeroPower = false;
+            SubPower();
+        }
     }
 
     void FixedUpdate()
@@ -52,6 +62,12 @@ public class Player : MonoBehaviour
     void AddPower()
     {
         Power++;
+    }
+
+    // CLP Update!
+    void SubPower()
+    {
+        Power--;
     }
 
     int Power

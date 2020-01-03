@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
 public class Priest : MonoBehaviour
 {
-
     [SerializeField]
     Transform punch = null;
 
@@ -25,6 +25,15 @@ public class Priest : MonoBehaviour
 
     float lasth = 1f;
     float lastv = -1f;
+
+    // CLP Update!
+    public float chaseSpeed = 5f;
+    public float fieldOfView = 1f;
+    Transform target = null;
+    float countTime = 0f;
+
+    public float possessTime = 10f;
+    float tempPossess = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -110,12 +119,96 @@ public class Priest : MonoBehaviour
         {
             punch.rotation = Quaternion.Euler(Vector3.forward * 270);
         }
+
+        // CLP Update!
+        // SE o jogador estiver controlando o Priest...
+        if (playerControllable)
+        {
+            // Ele se torna o alvo.
+            gameObject.tag = "Target";
+            PriestManager.Target = true;
+
+            // Inicia contagem regressiva.
+            tempPossess += Time.deltaTime;
+
+            if (tempPossess > possessTime)
+            {
+                tempPossess = 0;
+
+                target = null;
+
+                playerControllable = false;
+
+                m_an.SetBool("Walking", false);
+
+                m_rb.velocity = Vector2.zero;
+
+                PlayerManager.isEnabled = true;
+
+                Player.zeroPower = true;
+
+                // Recolocar na mesma posição.
+                //PlayerManager.priestPosition = transform.position;
+                //PlayerManager.resetPosition = true;
+            }
+        }
+        else
+        {
+            gameObject.tag = "Untagged";
+        }
+
+        // SE há um alvo definido e não sou "eu"...
+        if (!playerControllable && PriestManager.Target)
+        {
+            // Definir o alvo.
+            target = GameObject.FindGameObjectWithTag("Target").GetComponent<Transform>();
+
+            // Workaround...
+            if (transform.position.x > target.position.x)
+            {
+                punch.rotation = Quaternion.Euler(Vector3.forward * 180);
+            }
+            else
+            {
+                punch.rotation = Quaternion.Euler(Vector3.forward * 0);
+            }
+
+            // SE o alvo estiver dentro do "campo de visão".
+            if (Vector2.Distance(transform.position, target.position) < fieldOfView)
+            {
+                // Carregando o punch!
+                countTime += Time.deltaTime;
+
+                // Ataques:
+                // Campo de visão maior, demora para atacar.
+                // Campo de visão menor, rápido para atacar.
+                if(countTime > fieldOfView)
+                {
+                    countTime = 0; // Inicia novo ciclo.
+                    m_pan.SetTrigger("Punch"); // Executa ataque.
+                }
+
+                // Flip Character.
+                m_sp.flipX = transform.position.x > target.position.x;
+
+                // Translate position.
+                transform.position = Vector2.MoveTowards(transform.position, target.position, chaseSpeed * Time.deltaTime);
+            }
+            else
+            {
+                countTime = 0; // Inicia novo ciclo.
+            }
+        }
+        else
+        {
+            target = null;
+        }
     }
 
     void FixedUpdate()
     {
         if (!playerControllable)
-            return; 
+            return;
 
         if (m_rb)
             m_rb.velocity = move;
@@ -132,6 +225,7 @@ public class Priest : MonoBehaviour
         {
             p.gameObject.SetActive(false);
             playerControllable = true;
+            PlayerManager.isEnabled = false;
         }
     }
 }
