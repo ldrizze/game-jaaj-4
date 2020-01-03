@@ -6,7 +6,7 @@
 ---
 
 <p align="center">
-    Bodim é um espirito malvado nascido em um ritual no qual são necessários 3 altares profanos. Os sacerdotes desejam exorcisar o local abençoando os altares e afugentar Bodim.
+    Bodim é um espirito malvado nascido em um ritual no qual são necessários 3 altares profanos. Os sacerdotes desejam exorcisar o local, abençoando os altares, e afugentar Bodim.
 </p>
 
 ## 📝 Sumário
