@@ -9,10 +9,16 @@ public class GameManager : MonoBehaviour
     Image pauseMenuPanel = null;
 
     [SerializeField]
+    Image gameOverPanel = null;
+
+    [SerializeField]
     EventSystem evtSystem = null;
 
     [SerializeField]
     Button resumeButton = null;
+
+    [SerializeField]
+    Button retryButton = null;
 
     void Start()
     {
@@ -43,21 +49,39 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0f;
-        if (pauseMenuPanel)
-            pauseMenuPanel.gameObject.SetActive(true);
+        if (!pauseMenuPanel || !evtSystem || !resumeButton)
+            return;
 
-        if (evtSystem && resumeButton)
-            evtSystem.SetSelectedGameObject(resumeButton.gameObject);
+        Time.timeScale = 0f;
+        pauseMenuPanel.gameObject.SetActive(true);
+        evtSystem.SetSelectedGameObject(resumeButton.gameObject);
     }
 
     public void ResumeGame()
     {
-        Time.timeScale = 1f;
-        if (pauseMenuPanel)
-            pauseMenuPanel.gameObject.SetActive(false);
+        if (!pauseMenuPanel || !evtSystem)
+            return;
 
-        if (evtSystem)
-            evtSystem.SetSelectedGameObject(null);
+        Time.timeScale = 1f;
+        pauseMenuPanel.gameObject.SetActive(false);
+        evtSystem.SetSelectedGameObject(null);
+    }
+
+    public void GameOver()
+    {
+        if (!gameOverPanel || !evtSystem || !retryButton)
+            return;
+
+        gameOverPanel.gameObject.SetActive(true);
+        evtSystem.SetSelectedGameObject(retryButton.gameObject);
+    }
+
+    public void Retry()
+    {
+        if (!gameOverPanel || !evtSystem)
+            return;
+
+        gameOverPanel.gameObject.SetActive(false);
+        evtSystem.SetSelectedGameObject(null);
     }
 }
