@@ -4764,7 +4764,7 @@ GameObject:
   - component: {fileID: 4199561290248995441}
   - component: {fileID: 2488441916074740122}
   m_Layer: 0
-  m_Name: bodim_0
+  m_Name: Bodim Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4822,7 +4822,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 2460629675448166671, guid: 3ed8d780ec0cb4a4f91a1bc4ee62ba7a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
