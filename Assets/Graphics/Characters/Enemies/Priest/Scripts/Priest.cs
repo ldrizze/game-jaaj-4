@@ -161,9 +161,13 @@ public class Priest : MonoBehaviour
         if (!playerControllable && PriestManager.Target)
         {
             // Definir o alvo.
-            target = GameObject.FindGameObjectWithTag("Target").GetComponent<Transform>();
+            GameObject _go = GameObject.FindGameObjectWithTag("Target");
+            if (_go)
+                target = _go.GetComponent<Transform>();
+            else
+                return;
 
-            // Workaround...
+            // Workaround... Gambiarra! xD
             if (transform.position.x > target.position.x)
             {
                 punch.rotation = Quaternion.Euler(Vector3.forward * 180);
