@@ -10304,7 +10304,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b6bb2b8c4f70ede44b95573b68415926, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 26033f7572fb9d2409cfe4ff38f16c45, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.15
   m_Pitch: 1
@@ -10602,17 +10602,17 @@ PrefabInstance:
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: chaseSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
-        type: 3}
-      propertyPath: fieldOfView
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
+      propertyPath: fieldOfView
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
+        type: 3}
       propertyPath: possessTime
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
@@ -10966,12 +10966,12 @@ PrefabInstance:
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: chaseSpeed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: fieldOfView
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
@@ -13641,17 +13641,17 @@ PrefabInstance:
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: chaseSpeed
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: fieldOfView
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: possessTime
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
@@ -14194,17 +14194,17 @@ PrefabInstance:
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: chaseSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
-        type: 3}
-      propertyPath: fieldOfView
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
+      propertyPath: fieldOfView
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
+        type: 3}
       propertyPath: possessTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}

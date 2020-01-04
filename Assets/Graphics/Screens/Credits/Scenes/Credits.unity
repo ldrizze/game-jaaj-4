@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 64.00003, y: 36}
-  m_SizeDelta: {x: 297.9, y: 64}
+  m_AnchoredPosition: {x: 50, y: 36}
+  m_SizeDelta: {x: 241.4, y: 64}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &80581409
 MonoBehaviour:
@@ -269,6 +269,104 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3137255, g: 0.015686275, b: 0.27450982, a: 0.6}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 0
+--- !u!1 &114835433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 114835434}
+  - component: {fileID: 114835437}
+  - component: {fileID: 114835436}
+  - component: {fileID: 114835435}
+  m_Layer: 5
+  m_Name: Equipe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &114835434
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114835433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1264441017}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 311, y: -37.906}
+  m_SizeDelta: {x: 322.1, y: 354.41}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &114835435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114835433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
+--- !u!114 &114835436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114835433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 27
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1.25
+  m_Text: "<color=#F3A031>EQUIPE</color>\r\nCleyton Luis \"Creyto\" Palauro\r\n<color=#cccccc>Game
+    Design e Programa\xE7\xE3o</color>\r\n<color=#FF0497><cleytonresc@hotmail.com></color>\r\nLuis
+    Henrique \"Louie\" Fedrizze\r\n<color=#cccccc>Game Design e Programa\xE7\xE3o</color>\r\n<color=#FF0497><luisfedrizze@gmail.com></color>\r\nMatheus
+    Alvarez \"T\xEAco\" Crivellari\r\n<color=#cccccc>Game Design, Programa\xE7\xE3o
+    e Arte</color>\r\n<color=#FF0497><github.com/matheus-crivellari></color>\r\nMatheus
+    Arantes \"Nunces\" Nunes\r\n<color=#cccccc>Game Design e Arte</color>\r\n<color=#FF0497><matheusan@live.com></color>"
+--- !u!222 &114835437
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114835433}
+  m_CullTransparentMesh: 0
 --- !u!1 &351611346
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,8 +402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -57.799988, y: 51.774982}
-  m_SizeDelta: {x: 282.2, y: 148.45}
+  m_AnchoredPosition: {x: -57.799988, y: -68}
+  m_SizeDelta: {x: 191, y: 148.4}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &351611348
 MonoBehaviour:
@@ -767,7 +865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1229457642
 RectTransform:
   m_ObjectHideFlags: 0
@@ -941,6 +1039,7 @@ RectTransform:
   - {fileID: 1547565974}
   - {fileID: 1644369934}
   - {fileID: 351611347}
+  - {fileID: 114835434}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1062,7 +1161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1547565974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1079,8 +1178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 51.8}
-  m_SizeDelta: {x: 282.2, y: 148.5}
+  m_AnchoredPosition: {x: 3.22, y: 84.59}
+  m_SizeDelta: {x: 286.63, y: 82.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1547565975
 MonoBehaviour:
@@ -1128,9 +1227,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.25
-  m_Text: "<color=#F3A031>PROGRAMAC\xC3O</color>\r\nCleyton Luis \"Creyto\" Palauro\r\n<color=#FF0497><cleytonresc@hotmail.com></color>\r\nLuis
-    Henrique \"Louie\" Fedrizze\r\n<color=#FF0497><luisfedrizze@gmail.com></color>\r\nMatheus
-    Alvarez \"T\xEAco\" Crivellari\r\n<color=#FF0497><https://github.com/matheus-crivellari></color>"
+  m_Text: "<color=#F3A031>PROGRAMAC\xC3O</color>\r\nCleyton Luis \"Creyto\" Palauro\nLuis
+    Henrique \"Louie\" Fedrizze\r\nMatheus Alvarez \"T\xEAco\" Crivellari\r"
 --- !u!222 &1547565977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1157,7 +1255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1644369934
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1174,7 +1272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -347.52002, y: -97}
+  m_AnchoredPosition: {x: -329.8, y: -124.5}
   m_SizeDelta: {x: 282.2, y: 101.7}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1644369935
@@ -1223,7 +1321,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.25
-  m_Text: "<color=#F3A031>ARTE</color>\r\nMatheus Alvarez \"T\xEAco\" Crivellari\r\n<color=#FF0497><https://github.com/matheus-crivellari></color>\r\nMatheus
+  m_Text: "<color=#F3A031>ARTE</color>\r\nMatheus Alvarez \"T\xEAco\" Crivellari\r\n<color=#FF0497><github.com/matheus-crivellari></color>\r\nMatheus
     Arantes \"Nunces\" Nunes\r\n<color=#FF0497><matheusan@live.com></color>"
 --- !u!222 &1644369937
 CanvasRenderer:
