@@ -32,11 +32,11 @@ Basta clicar no botão verde "Play Game" no topo da página. Se preferir também
 
 ## 🎈 Como jogar <a name="usage"></a>
 
-Bodim é um espirito malvado nascido em um ritual no qual são necessários 3 altares profanos. Os sacerdotes desejam exorcisar o local, abençoando todos os três altares para afugentar Bodim. Mova Bodim pelo cenário utilizando as setas do teclado ou as teclas A,S,D,W.
+**Bodim** é um espirito malvado nascido em um ritual no qual são necessários 3 altares profanos. Os sacerdotes desejam exorcisar o local, abençoando todos os três altares para afugentar **Bodim**. Mova **Bodim** pelo cenário utilizando as setas do teclado ou as teclas <kbd>A</kbd>,<kbd>S</kbd>,<kbd>D</kbd>,<kbd>W</kbd>.
 
-Colete os símbolos de pentagrama para aumentar o poder de possessão de Bodim. Quando Bodim estiver forte o bastante ele ganhará uma aura vermelha indicando que agora é possível possuir um ser humano. Encoste Bodim em um sacerdote quando ele estiver com esta aura para possuir o sacerdote e poder atacar os demais impedindo-os de chegar aos altares de Bodim.
+Colete os símbolos de pentagrama para aumentar o poder de possessão de **Bodim**. Quando **Bodim** estiver forte o bastante ele ganhará uma aura vermelha indicando que é possível possuir um ser vivo. Encoste **Bodim** em um **sacerdote** quando estiver com esta aura para possuir o **sacerdote** e atacar os demais. Utilize a tecla <kbd>Ctrl</kbd> para atacar, impedindo-os de chegar aos altares de **Bodim**.
 
-Mas lembre-se os outros sacerdotes tentarão atacar o sacerdote possuindo. A possessão dura por um tempo limitado, utilize o sacerdote possuído da melhor forma para impedir que Bodim seja enviado de volta para o burado de onde saiu.
+E lembre-se, os outros **sacerdotes** tentarão atacar o sacerdote possuído. A possessão tem um tempo limitado, utilize o sacerdote possuído da melhor forma para impedir que **Bodim** seja enviado de volta para o buraco de onde saiu.
 
 ## ✍️ Autores <a name = "authors"></a>
 
