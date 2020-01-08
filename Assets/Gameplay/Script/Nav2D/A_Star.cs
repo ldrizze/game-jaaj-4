@@ -64,6 +64,11 @@ namespace Nav2D
                 foreach (ANode neighbour in GetNeighbours(current))
                 {
                     if (closedList.Contains(neighbour)) continue;
+                    if(!neighbour.isWalkable)
+                    {
+                        closedList.Add(neighbour);
+                        continue;
+                    }
 
                     int tentative = current.g + CalculateH(current, neighbour);
 

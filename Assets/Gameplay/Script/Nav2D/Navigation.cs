@@ -65,9 +65,16 @@ namespace Nav2D
 
                     if(navigationAlgorithm == NavAlgorithm.A_Star)
                     {
+                        Tile tile = (Tile) tilemap.GetTile(new Vector3Int(offsetX + x, offsetY + y, 0));
+
                         graph[y, x] = new ANode();
                         graph[y, x].x = x;
                         graph[y, x].y = y;
+
+                        if (tile)
+                            graph[y, x].isWalkable = false;
+                        else
+                            graph[y, x].isWalkable = true;
                     }
                     else
                     {
