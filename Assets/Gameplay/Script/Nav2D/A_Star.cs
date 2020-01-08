@@ -24,7 +24,7 @@ namespace Nav2D
             this.graph = graph;
         }
 
-        public List<ANode> FindPath()
+        public List<ANode> CalculatePath()
         {
             for (int y = 0; y < graph.GetLength(0); y++)
             {

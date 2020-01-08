@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace Nav2D
@@ -15,12 +16,19 @@ namespace Nav2D
         [SerializeField]
         NavAlgorithm navigationAlgorithm = NavAlgorithm.A_Star;
 
+        static Navigation m_instance = null;
+
         Tilemap tilemap = null;
         int offsetX = 0;
         int offsetY = 0;
         int width = 0;
         int height = 0;
         BaseNode[,] graph;
+
+        private void Awake()
+        {
+            Navigation.m_instance = this;
+        }
 
         void Start()
         {
@@ -66,6 +74,34 @@ namespace Nav2D
             }
         }
 
+        public Vector3[] CalculatePath(Vector3 origin, Vector3 destination)
+        {
+            Vector3Int oc = tilemap.WorldToCell(origin),
+                       dc = tilemap.WorldToCell(destination);
+
+            oc.x -= offsetX; dc.x -= offsetX;
+            oc.y -= offsetY; dc.y -= offsetY;
+
+            if(navigationAlgorithm == NavAlgorithm.A_Star)
+            {
+                ANode aOrigin = (ANode) graph[oc.y, oc.x];
+                ANode aDestin = (ANode) graph[dc.y, dc.x];
+                List<ANode> m_path = new A_Star(aOrigin, aDestin, (ANode[,])graph).CalculatePath();
+
+                Vector3[] path = new Vector3[m_path.Count];
+
+                for (int i = 0; i < m_path.Count; i++)
+                {
+                    ANode node = m_path[i];
+                    path[i] = tilemap.CellToWorld(new Vector3Int(node.x, node.y, 0));
+                }
+
+                return path;
+            }
+
+            return null;
+        }
+
         private void OnDrawGizmos()
         {
             if (!tilemap)
@@ -108,6 +144,14 @@ namespace Nav2D
                     if (_x < width - 1 && _y < height - 1)
                         Gizmos.DrawLine(t, rut);
                 }
+            }
+        }
+
+        public static Navigation Instance
+        {
+            get
+            {
+                return m_instance; 
             }
         }
     }
