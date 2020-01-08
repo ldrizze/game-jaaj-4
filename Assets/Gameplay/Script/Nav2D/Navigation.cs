@@ -16,6 +16,9 @@ namespace Nav2D
         [SerializeField]
         NavAlgorithm navigationAlgorithm = NavAlgorithm.A_Star;
 
+        [SerializeField]
+        bool useDiagonals = false;
+
         static Navigation m_instance = null;
 
         Tilemap tilemap = null;
@@ -86,7 +89,7 @@ namespace Nav2D
             {
                 ANode aOrigin = (ANode) graph[oc.y, oc.x];
                 ANode aDestin = (ANode) graph[dc.y, dc.x];
-                List<ANode> m_path = new A_Star(aOrigin, aDestin, graph).CalculatePath();
+                List<ANode> m_path = new A_Star(aOrigin, aDestin, graph, useDiagonals).CalculatePath();
 
                 Vector3[] path = new Vector3[m_path.Count+1];
                 path[0] = origin;

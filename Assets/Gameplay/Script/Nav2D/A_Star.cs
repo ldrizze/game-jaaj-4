@@ -13,9 +13,21 @@ namespace Nav2D
         BaseNode[,] graph = null;
         List<ANode> openList = null;
         List<ANode> closedList = null;
+        bool useDiagonals = false;
 
         public A_Star(ANode origin, ANode destination, BaseNode[,] graph)
         {
+            Setup(origin, destination, graph, false);
+        }
+
+        public A_Star(ANode origin, ANode destination, BaseNode[,] graph, bool useDiagonals)
+        {
+            Setup(origin, destination, graph, useDiagonals);
+        }
+
+        public void Setup(ANode origin, ANode destination, BaseNode[,] graph, bool useDiagonals)
+        {
+            this.useDiagonals = useDiagonals;
             this.origin = origin;
             this.destination = destination;
 
@@ -104,6 +116,37 @@ namespace Nav2D
             {
                 ANode nodeBelow = (ANode) graph[y + 1, x];
                 neighbours.Add(nodeBelow);
+            }
+
+            if(useDiagonals)
+            {
+                // node left below
+                if (x < graph.GetLength(1) && y > 0)
+                {
+                    ANode nodeLeft = (ANode)graph[y - 1, x - 1];
+                    neighbours.Add(nodeLeft);
+                }
+
+                // node right below
+                if (x > 0 && y > 0)
+                {
+                    ANode nodeLeft = (ANode)graph[y - 1, x + 1];
+                    neighbours.Add(nodeLeft);
+                }
+
+                // node left above
+                if (x < graph.GetLength(1) && y < graph.GetLength(0) - 1)
+                {
+                    ANode nodeLeft = (ANode)graph[y + 1, x - 1];
+                    neighbours.Add(nodeLeft);
+                }
+
+                // node right above
+                if (x > 0 && y < graph.GetLength(0) - 1)
+                {
+                    ANode nodeLeft = (ANode)graph[y + 1, x + 1];
+                    neighbours.Add(nodeLeft);
+                }
             }
 
             return neighbours;
