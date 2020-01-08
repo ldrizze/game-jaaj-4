@@ -10,11 +10,11 @@ namespace Nav2D
 
         ANode origin = null;
         ANode destination = null;
-        ANode[,] graph = null;
+        BaseNode[,] graph = null;
         List<ANode> openList = null;
         List<ANode> closedList = null;
 
-        public A_Star(ANode origin, ANode destination, ANode[,] graph)
+        public A_Star(ANode origin, ANode destination, BaseNode[,] graph)
         {
             this.origin = origin;
             this.destination = destination;
@@ -30,7 +30,7 @@ namespace Nav2D
             {
                 for (int x = 0; x < graph.GetLength(1); x++)
                 {
-                    ANode node = graph[y, x];
+                    ANode node = (ANode) graph[y, x];
                     node.g = int.MaxValue;
                     node.cameFrom = null;
 
@@ -82,28 +82,28 @@ namespace Nav2D
             // node left
             if (x < graph.GetLength(1))
             {
-                ANode nodeLeft = graph[y, x - 1];
+                ANode nodeLeft = (ANode) graph[y, x - 1];
                 neighbours.Add(nodeLeft);
             }
 
             // node right
             if (x > 0)
             {
-                ANode nodeRight = graph[y, x + 1];
+                ANode nodeRight = (ANode) graph[y, x + 1];
                 neighbours.Add(nodeRight);
             }
 
             // node below
             if (y > 0)
             {
-                ANode nodeBelow = graph[y - 1, x];
+                ANode nodeBelow = (ANode) graph[y - 1, x];
                 neighbours.Add(nodeBelow);
             }
 
             // node above
             if (y < graph.GetLength(0)-1)
             {
-                ANode nodeBelow = graph[y + 1, x];
+                ANode nodeBelow = (ANode) graph[y + 1, x];
                 neighbours.Add(nodeBelow);
             }
 

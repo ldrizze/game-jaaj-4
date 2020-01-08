@@ -10,6 +10,11 @@ namespace Nav2D
 
 		public Vector3 destination;
 
+		private void Awake()
+		{
+			path = new Vector3[0];
+		}
+
 		void Start()
 		{
 			navigation = Navigation.Instance;

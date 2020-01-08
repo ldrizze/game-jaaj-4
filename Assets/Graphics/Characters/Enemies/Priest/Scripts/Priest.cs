@@ -143,10 +143,19 @@ public class Priest : MonoBehaviour
 
     public void GotoTarget()
     {
-        if (!m_ag || !target)
+        if (playerControllable || !m_ag || !target)
             return;
 
         m_ag.SetDestination(target.position);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!m_ag || !target)
+            return;
+
+        if (m_ag.Path.Length == 0)
+            return;
 
         Vector3 prev = m_ag.Path[0];
         foreach (Vector3 waypoint in m_ag.Path)

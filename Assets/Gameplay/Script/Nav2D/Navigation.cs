@@ -86,7 +86,7 @@ namespace Nav2D
             {
                 ANode aOrigin = (ANode) graph[oc.y, oc.x];
                 ANode aDestin = (ANode) graph[dc.y, dc.x];
-                List<ANode> m_path = new A_Star(aOrigin, aDestin, (ANode[,])graph).CalculatePath();
+                List<ANode> m_path = new A_Star(aOrigin, aDestin, graph).CalculatePath();
 
                 Vector3[] path = new Vector3[m_path.Count];
 
