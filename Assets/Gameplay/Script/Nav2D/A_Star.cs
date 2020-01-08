@@ -75,7 +75,39 @@ namespace Nav2D
 
         public List<ANode> GetNeighbours(ANode node)
         {
-            return null;
+            List<ANode> neighbours = new List<ANode>();
+
+            int x = node.x, y = node.y;
+
+            // node left
+            if (x < graph.GetLength(1))
+            {
+                ANode nodeLeft = graph[y, x - 1];
+                neighbours.Add(nodeLeft);
+            }
+
+            // node right
+            if (x > 0)
+            {
+                ANode nodeRight = graph[y, x + 1];
+                neighbours.Add(nodeRight);
+            }
+
+            // node below
+            if (y > 0)
+            {
+                ANode nodeBelow = graph[y - 1, x];
+                neighbours.Add(nodeBelow);
+            }
+
+            // node above
+            if (y < graph.GetLength(0)-1)
+            {
+                ANode nodeBelow = graph[y + 1, x];
+                neighbours.Add(nodeBelow);
+            }
+
+            return neighbours;
         }
 
         public List<ANode> GetPath(ANode destination)

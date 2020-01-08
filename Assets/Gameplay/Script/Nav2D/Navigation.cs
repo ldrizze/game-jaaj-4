@@ -22,7 +22,6 @@ namespace Nav2D
         int height = 0;
         BaseNode[,] graph;
 
-
         void Start()
         {
             SetupNavigation();
