@@ -88,13 +88,15 @@ namespace Nav2D
                 ANode aDestin = (ANode) graph[dc.y, dc.x];
                 List<ANode> m_path = new A_Star(aOrigin, aDestin, graph).CalculatePath();
 
-                Vector3[] path = new Vector3[m_path.Count];
+                Vector3[] path = new Vector3[m_path.Count+1];
+                path[0] = origin;
 
                 for (int i = 0; i < m_path.Count; i++)
                 {
                     ANode node = m_path[i];
-                    path[i] = tilemap.CellToWorld(new Vector3Int(node.x, node.y, 0));
+                    path[i + 1] = tilemap.GetCellCenterWorld(new Vector3Int(offsetX + node.x, offsetY + node.y, 0));
                 }
+
 
                 return path;
             }

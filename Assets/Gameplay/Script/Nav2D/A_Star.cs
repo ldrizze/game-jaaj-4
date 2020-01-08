@@ -33,7 +33,6 @@ namespace Nav2D
                     ANode node = (ANode) graph[y, x];
                     node.g = int.MaxValue;
                     node.cameFrom = null;
-
                 }
             }
 
