@@ -58,7 +58,7 @@ namespace Nav2D
             {
                 for (int _x = 0; _x < width; _x++)
                 {
-                    int x = offsetX + _x, y = offsetY + _y;
+                    int x = _x, y = _y;
 
                     if(navigationAlgorithm == NavAlgorithm.A_Star)
                     {

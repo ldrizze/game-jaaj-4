@@ -26,11 +26,17 @@ namespace Nav2D
 				path = navigation.CalculatePath(transform.position, destination);
 		}
 
+		public void SetDestination(Vector3 destination)
+		{
+			this.destination = destination;
+			CalculatePath();
+		}
+
 		public Vector3[] Path
 		{
 			get
 			{
-				return this.path;
+				return path;
 			}
 		}
 	}

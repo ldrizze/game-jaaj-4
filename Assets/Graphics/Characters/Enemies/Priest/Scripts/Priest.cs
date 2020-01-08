@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Nav2D;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -15,6 +16,9 @@ public class Priest : MonoBehaviour
     [SerializeField]
     PriestType type = PriestType.Neutral;
 
+    [SerializeField]
+    Transform target = null;
+
     public bool playerControllable = false;
 
     Vector2 move = Vector2.zero;
@@ -22,6 +26,7 @@ public class Priest : MonoBehaviour
     SpriteRenderer m_sp = null;
     Animator m_an = null;
     Animator m_pan = null;
+    Agent m_ag = null;
 
     float lasth = 1f;
     float lastv = -1f;
@@ -32,6 +37,7 @@ public class Priest : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         m_sp = GetComponent<SpriteRenderer>();
         m_an = GetComponent<Animator>();
+        m_ag = GetComponent<Agent>();
 
         if (punch)
             m_pan = punch.GetComponent<Animator>();
@@ -132,6 +138,22 @@ public class Priest : MonoBehaviour
         {
             p.gameObject.SetActive(false);
             playerControllable = true;
+        }
+    }
+
+    public void GotoTarget()
+    {
+        if (!m_ag || !target)
+            return;
+
+        m_ag.SetDestination(target.position);
+
+        Vector3 prev = m_ag.Path[0];
+        foreach (Vector3 waypoint in m_ag.Path)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(prev, waypoint);
+            prev = waypoint;
         }
     }
 }
