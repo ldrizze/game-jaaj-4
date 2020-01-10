@@ -39,6 +39,9 @@ public class Priest : MonoBehaviour
         m_an = GetComponent<Animator>();
         m_ag = GetComponent<Agent>();
 
+        if (m_ag)
+            m_ag.speed = speed;
+
         if (punch)
             m_pan = punch.GetComponent<Animator>();
 
@@ -80,23 +83,23 @@ public class Priest : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1") && punch)
                 m_pan.SetTrigger("Punch");
+        }
 
-            m_an.SetBool("FacingDown", lastv < 0f);
+        m_an.SetBool("FacingDown", lastv < 0f);
 
-            if (m_rb.velocity.x != 0f)
+        if (m_rb.velocity.x != 0f)
+        {
+            m_an.SetBool("Walking", true);
+        }
+        else
+        {
+            if (m_rb.velocity.y != 0f)
             {
                 m_an.SetBool("Walking", true);
             }
             else
             {
-                if (m_rb.velocity.y != 0f)
-                {
-                    m_an.SetBool("Walking", true);
-                }
-                else
-                {
-                    m_an.SetBool("Walking", false);
-                }
+                m_an.SetBool("Walking", false);
             }
         }
 
@@ -154,7 +157,7 @@ public class Priest : MonoBehaviour
         if (!m_ag || !target)
             return;
 
-        if (m_ag.Path.Length == 0)
+        if (m_ag.Path == null)
             return;
 
         Vector3 prev = m_ag.Path[0];
