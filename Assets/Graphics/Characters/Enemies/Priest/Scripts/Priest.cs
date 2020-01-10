@@ -75,9 +75,13 @@ public class Priest : MonoBehaviour
 
         if (playerControllable)
             move = new Vector2(h * speed, v * speed);
+        else
+            move = m_ag.Velocity;
 
-        if (playerControllable && m_sp)
+        if (m_sp)
             m_sp.flipX = lasth < 0f;
+
+        m_an.SetBool("FacingDown", lastv < 0f);
 
         if (playerControllable)
         {
@@ -85,15 +89,19 @@ public class Priest : MonoBehaviour
                 m_pan.SetTrigger("Punch");
         }
 
-        m_an.SetBool("FacingDown", lastv < 0f);
+        // if character is player movable uses rigidbody velocity
+        Vector2 vel = m_rb.velocity;
 
-        if (m_rb.velocity.x != 0f)
+        if (!playerControllable) // if not uses agent velocity
+            vel = m_ag.Velocity;
+
+        if (vel.x != 0f)
         {
             m_an.SetBool("Walking", true);
         }
         else
         {
-            if (m_rb.velocity.y != 0f)
+            if (vel.y != 0f)
             {
                 m_an.SetBool("Walking", true);
             }
@@ -119,6 +127,11 @@ public class Priest : MonoBehaviour
         {
             punch.rotation = Quaternion.Euler(Vector3.forward * 270);
         }
+
+        if (playerControllable)
+            m_rb.mass = 0f;
+        else
+            m_rb.mass = 1000f;
     }
 
     void FixedUpdate()
@@ -142,6 +155,11 @@ public class Priest : MonoBehaviour
             p.gameObject.SetActive(false);
             playerControllable = true;
         }
+    }
+
+    public void SetMove(Vector2 move)
+    {
+        this.move = move;
     }
 
     public void GotoTarget()
