@@ -5,7 +5,7 @@ namespace Nav2D
 	public class Agent : MonoBehaviour
 	{
 		[SerializeField]
-		float precision = 0.15f;
+		float precision = 0.20f;
 
 		Navigation navigation = null;
 		Vector3[] path = null;
@@ -28,16 +28,20 @@ namespace Nav2D
 			m_rb = GetComponent<Rigidbody2D>();
 		}
 
-		private void Update()
+		void Update()
 		{
-			velocity = (transform.position - m_previousPosition) / Time.deltaTime;
-			m_previousPosition = transform.position;
-		}
+			if (destination == null)
+				return;
 
-		void FixedUpdate()
-		{
-			if (destination != null)
+			if (Mathf.Abs(Vector3.Distance(transform.position, (Vector3)destination)) >= precision)
 				Move();
+			else
+			{
+				transform.position = (Vector3) destination;
+				destination = null;
+				path = null;
+				velocity = Vector3.zero;
+			}
 		}
 
 		public void CalculatePath()
@@ -71,8 +75,8 @@ namespace Nav2D
 
 		Vector3 NextStep()
 		{
-			if (Mathf.Abs(Vector3.Distance(transform.position, path[m_stepIdx])) < precision)
-				if (m_stepIdx < path.Length - 1)
+			if (m_stepIdx < path.Length - 1)
+				if (Mathf.Abs(Vector3.Distance(transform.position, (Vector3)path[m_stepIdx])) < precision)
 					return path[++m_stepIdx];
 
 			return path[m_stepIdx];
@@ -86,6 +90,7 @@ namespace Nav2D
 			if (transform.position == destination)
 				return;
 
+			// finds new waypoint in path array
 			m_step = NextStep();
 
 			if (!m_rb)
@@ -93,9 +98,16 @@ namespace Nav2D
 
 			Vector3 step = (Vector3)m_step;
 
-			m_rb.MovePosition(Vector3.MoveTowards(transform.position, step, Time.fixedDeltaTime * speed));
+			// before moving stores old position
+			m_previousPosition = transform.position;
+			// move object
+			transform.position = Vector3.MoveTowards(transform.position, step, Time.deltaTime * speed);
 
-			Debug.Log(Time.fixedDeltaTime);
+			float deltaX = transform.position.x - m_previousPosition.x,
+				  deltaY = transform.position.y - m_previousPosition.y;
+
+			// stores calculated speed based on movement
+			velocity = new Vector3(deltaX, deltaY, 0) / Time.deltaTime;
 		}
 	}
 }
