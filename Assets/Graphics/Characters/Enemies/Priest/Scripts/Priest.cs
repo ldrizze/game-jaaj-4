@@ -8,18 +8,40 @@ public class Priest : MonoBehaviour
 {
 
     [SerializeField]
-    Transform punch = null;
+    PriestType type = PriestType.Neutral;
 
+    /// <summary>
+    /// Tells if this priest is player controlled or AI controlled.
+    /// </summary>
+    [Tooltip("Tells if this priest is player controlled or AI controlled.")]
+    public bool playerControllable = false;
+
+    /// <summary>
+    /// This is how much life this priest has.
+    /// </summary>
     [SerializeField]
+    [Tooltip("This is how much life this priest has.")]
+    float health = 100;
+
+    /// <summary>
+    /// This is how much damage this priest inflicts in his oponents.
+    /// </summary>
+    [SerializeField]
+    [Tooltip("This is how much damage this priest inflicts in his oponents.")]
+    float damage = 34;
+
+    /// <summary>
+    /// This is how fast the priest moves in meters per second, in other words tiles per second.
+    /// </summary>
+    [SerializeField]
+    [Tooltip("This is how fast the priest moves in meters per second, in other words tiles per second.")]
     float speed = 10f;
 
     [SerializeField]
-    PriestType type = PriestType.Neutral;
+    Transform punch = null;
 
     [SerializeField]
     Transform target = null;
-
-    public bool playerControllable = false;
 
     Vector2 move = Vector2.zero;
     Rigidbody2D m_rb = null;
