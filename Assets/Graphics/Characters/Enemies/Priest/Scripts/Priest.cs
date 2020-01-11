@@ -64,6 +64,9 @@ public class Priest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // disable agent when priests is player controllable
+        m_ag.enabled = !playerControllable;
+
         if (move.x != 0f)
             lasth = move.x;
 

@@ -184,8 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92392f86a6d90c409d5f56b9e9903af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precision: 0.2
-  velocity: {x: 0, y: 0, z: 0}
+  radius: 0.25
   speed: 5
 --- !u!212 &5930310567461121234
 SpriteRenderer:
@@ -267,7 +266,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 1
+  m_UseAutoMass: 0
   m_Mass: 0.27853394
   m_LinearDrag: 0
   m_AngularDrag: 0.05

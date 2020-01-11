@@ -4,8 +4,13 @@ namespace Nav2D
 {
 	public class Agent : MonoBehaviour
 	{
+		/// <summary>
+		/// The avoidance radius for this agent.
+		/// This is the agent's "personal space" within which obstacles and other agents should not pass.
+		/// </summary>
 		[SerializeField]
-		float precision = 0.20f;
+		[Tooltip("The avoidance radius for this agent. \n This is the agent's \"personal space\" within which obstacles and other agents should not pass.")]
+		float radius = .25f;
 
 		Navigation navigation = null;
 		Vector3[] path = null;
@@ -13,7 +18,6 @@ namespace Nav2D
 		Vector3? m_step = null;
 		Vector3 m_previousPosition;
 
-		[SerializeField]
 		Vector3 velocity = Vector3.zero;
 
 		Rigidbody2D m_rb = null;
@@ -33,11 +37,10 @@ namespace Nav2D
 			if (destination == null)
 				return;
 
-			if (Mathf.Abs(Vector3.Distance(transform.position, (Vector3)destination)) >= precision)
+			if (Mathf.Abs(Vector3.Distance(transform.position, (Vector3)destination)) > radius * 2)
 				Move();
 			else
 			{
-				transform.position = (Vector3) destination;
 				destination = null;
 				path = null;
 				velocity = Vector3.zero;
@@ -76,7 +79,7 @@ namespace Nav2D
 		Vector3 NextStep()
 		{
 			if (m_stepIdx < path.Length - 1)
-				if (Mathf.Abs(Vector3.Distance(transform.position, (Vector3)path[m_stepIdx])) < precision)
+				if (Mathf.Abs(Vector3.Distance(transform.position, (Vector3)path[m_stepIdx])) <= radius)
 					return path[++m_stepIdx];
 
 			return path[m_stepIdx];
@@ -100,14 +103,23 @@ namespace Nav2D
 
 			// before moving stores old position
 			m_previousPosition = transform.position;
+
+			Vector3 adjustPosition = step;
+			
 			// move object
-			transform.position = Vector3.MoveTowards(transform.position, step, Time.deltaTime * speed);
+			transform.position = Vector3.MoveTowards(transform.position, adjustPosition, Time.deltaTime * speed);
 
 			float deltaX = transform.position.x - m_previousPosition.x,
 				  deltaY = transform.position.y - m_previousPosition.y;
 
 			// stores calculated speed based on movement
 			velocity = new Vector3(deltaX, deltaY, 0) / Time.deltaTime;
+		}
+
+		private void OnDrawGizmosSelected()
+		{
+			Gizmos.color = new Color(0, 1, 0, .25f);
+			Gizmos.DrawWireSphere(transform.position, radius);
 		}
 	}
 }
