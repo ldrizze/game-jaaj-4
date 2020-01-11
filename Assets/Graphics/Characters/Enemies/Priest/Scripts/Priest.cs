@@ -10,6 +10,9 @@ public class Priest : MonoBehaviour
     [SerializeField]
     PriestType type = PriestType.Neutral;
 
+    [SerializeField]
+    string displayName = "Priest";
+
     /// <summary>
     /// Tells if this priest is player controlled or AI controlled.
     /// </summary>
@@ -29,6 +32,13 @@ public class Priest : MonoBehaviour
     [SerializeField]
     [Tooltip("This is how much damage this priest inflicts in his oponents.")]
     float damage = 34;
+
+    /// <summary>
+    /// This is how much possession power is needed to possess this priest.
+    /// </summary>
+    [SerializeField]
+    [Tooltip("This is how much possession power is needed to possess this priest.")]
+    float faith = 100;
 
     /// <summary>
     /// This is how fast the priest moves in meters per second, in other words tiles per second.
@@ -67,16 +77,38 @@ public class Priest : MonoBehaviour
         if (punch)
             m_pan = punch.GetComponent<Animator>();
 
+        SetupPriest();
+    }
+
+    public float Fear
+    {
+        get { return 100 - faith; }
+    }
+
+    void SetupPriest()
+    {
         switch (type)
         {
             case PriestType.Purple:
                 m_an.SetInteger("Color", 1);
+                displayName = "";
+                health = 90;
+                damage = 34;
+                faith = 66;
                 break;
             case PriestType.Blue:
                 m_an.SetInteger("Color", 2);
+                displayName = "";
+                health = 110;
+                damage = 12;
+                faith = 33;
                 break;
             case PriestType.Green:
                 m_an.SetInteger("Color", 3);
+                displayName = "";
+                health = 100;
+                damage = 17;
+                faith = 1;
                 break;
             default:
                 break;
