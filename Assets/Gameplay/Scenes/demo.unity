@@ -206,7 +206,7 @@ PrefabInstance:
     - target: {fileID: 5930310567461121234, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121235, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
@@ -2201,30 +2201,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1735123194672151440, guid: fb0273ac0631f554691fa84bad5a1d11,
-        type: 3}
-      propertyPath: precision
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1735123194672151440, guid: fb0273ac0631f554691fa84bad5a1d11,
-        type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121232, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: m_Name
       value: Priest
       objectReference: {fileID: 0}
-    - target: {fileID: 5930310567461121233, guid: fb0273ac0631f554691fa84bad5a1d11,
-        type: 3}
-      propertyPath: m_UpdateMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121234, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121235, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
@@ -2283,29 +2268,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
-      propertyPath: playerControllable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
-        type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 243839864}
-    - target: {fileID: 5930310567461121236, guid: fb0273ac0631f554691fa84bad5a1d11,
-        type: 3}
-      propertyPath: type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930310567461121238, guid: fb0273ac0631f554691fa84bad5a1d11,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930310567461121238, guid: fb0273ac0631f554691fa84bad5a1d11,
-        type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb0273ac0631f554691fa84bad5a1d11, type: 3}
 --- !u!1 &1448956535
