@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Nav2D;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -29,9 +30,8 @@ public class Priest : MonoBehaviour
     /// <summary>
     /// This is how much damage this priest inflicts in his oponents.
     /// </summary>
-    [SerializeField]
     [Tooltip("This is how much damage this priest inflicts in his oponents.")]
-    float damage = 34;
+    public float damage = 34;
 
     /// <summary>
     /// This is how much possession power is needed to possess this priest.
@@ -83,6 +83,19 @@ public class Priest : MonoBehaviour
     public float Fear
     {
         get { return 100 - faith; }
+    }
+
+    void TakeDamage(float damage)
+    {
+        if (health > damage)
+            health -= damage;
+        else
+            Die();
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 
     void SetupPriest()
@@ -143,7 +156,7 @@ public class Priest : MonoBehaviour
         if (playerControllable)
         {
             if (Input.GetButtonDown("Fire1") && punch)
-                m_pan.SetTrigger("Punch");
+                Melee();
         }
 
         // if character is player movable uses rigidbody velocity
@@ -189,6 +202,22 @@ public class Priest : MonoBehaviour
             m_rb.mass = 0f;
         else
             m_rb.mass = 1000f;
+
+        if(playerControllable)
+        {
+            gameObject.tag = "Player";
+            punch.tag = "Player";
+        }
+        else
+        {
+            gameObject.tag = "Enemy";
+            punch.tag = "Enemy";
+        }
+    }
+
+    void Melee()
+    {
+        m_pan.SetTrigger("Punch");
     }
 
     void FixedUpdate()
