@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Nav2D;
+using AI;
 using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -53,12 +54,19 @@ public class Priest : MonoBehaviour
     [SerializeField]
     Transform target = null;
 
+    [SerializeField]
+    GameObject impactEffectPrefab = null;
+
+    [SerializeField]
+    GameObject deathEffectPrefab = null;
+
     Vector2 move = Vector2.zero;
     Rigidbody2D m_rb = null;
     SpriteRenderer m_sp = null;
     Animator m_an = null;
     Animator m_pan = null;
     Agent m_ag = null;
+    ArtificialIntelligence m_ai = null;
 
     float lasth = 1f;
     float lastv = -1f;
@@ -70,6 +78,7 @@ public class Priest : MonoBehaviour
         m_sp = GetComponent<SpriteRenderer>();
         m_an = GetComponent<Animator>();
         m_ag = GetComponent<Agent>();
+        m_ai = GetComponent<ArtificialIntelligence>();
 
         if (m_ag)
             m_ag.speed = speed;
@@ -85,16 +94,30 @@ public class Priest : MonoBehaviour
         get { return 100 - faith; }
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         if (health > damage)
+        {
             health -= damage;
+
+            if (!impactEffectPrefab)
+                return;
+
+            Transform t = Instantiate(impactEffectPrefab).transform;
+            t.position = transform.position;
+        }
         else
             Die();
     }
 
     private void Die()
     {
+        if(deathEffectPrefab)
+        {
+            Transform t = Instantiate(deathEffectPrefab).transform;
+            t.position = transform.position;
+        }
+
         Destroy(gameObject);
     }
 
@@ -104,21 +127,21 @@ public class Priest : MonoBehaviour
         {
             case PriestType.Purple:
                 m_an.SetInteger("Color", 1);
-                displayName = "";
+                displayName = "Acuos Bentus";
                 health = 90;
                 damage = 34;
                 faith = 66;
                 break;
             case PriestType.Blue:
                 m_an.SetInteger("Color", 2);
-                displayName = "";
+                displayName = "Biblicus";
                 health = 110;
                 damage = 12;
                 faith = 33;
                 break;
             case PriestType.Green:
                 m_an.SetInteger("Color", 3);
-                displayName = "";
+                displayName = "Cruztos";
                 health = 100;
                 damage = 17;
                 faith = 1;
@@ -213,9 +236,12 @@ public class Priest : MonoBehaviour
             gameObject.tag = "Enemy";
             punch.tag = "Enemy";
         }
+
+        if(m_ai)
+            m_ai.enabled = !playerControllable;
     }
 
-    void Melee()
+    public void Melee()
     {
         m_pan.SetTrigger("Punch");
     }

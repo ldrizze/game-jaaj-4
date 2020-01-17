@@ -26,7 +26,17 @@ public class Melee : MonoBehaviour
 
         // if target has different tag than this object send damage
         if (!other.CompareTag(gameObject.tag))
+        {
             other.SendMessage("TakeDamage", priest.damage, SendMessageOptions.DontRequireReceiver);
+            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+
+            if (rb)
+            {
+                Vector2 delta = other.transform.position - priest.transform.position;
+                rb.MovePosition(rb.position + delta * .5f);
+            }
+        }
+
     }
 
     void m_Active()

@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6564029517354382597}
+  - component: {fileID: 7964679532436825846}
   - component: {fileID: 6249482920500641583}
   - component: {fileID: 5733949364482620598}
   - component: {fileID: 3633994272355099399}
-  - component: {fileID: 7964679532436825846}
   m_Layer: 0
   m_Name: Punch
   m_TagString: Untagged
@@ -34,6 +34,18 @@ Transform:
   m_Father: {fileID: 5930310567461121235}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7964679532436825846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3590312970604589977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2102a583a91607b4997fe4212a151bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &6249482920500641583
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -119,18 +131,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.05
---- !u!114 &7964679532436825846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3590312970604589977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2102a583a91607b4997fe4212a151bb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5930310567461121232
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 5930310567461121233}
   - component: {fileID: 5930310567461121238}
   - component: {fileID: 5930310567461121237}
+  - component: {fileID: 2420888944921477225}
   m_Layer: 0
   m_Name: Priest
   m_TagString: Untagged
@@ -189,6 +190,10 @@ MonoBehaviour:
   speed: 5
   punch: {fileID: 6564029517354382597}
   target: {fileID: 0}
+  impactEffectPrefab: {fileID: 8591010604525049622, guid: 2f6e1675bcdffac41a34d779f7780740,
+    type: 3}
+  deathEffectPrefab: {fileID: 1452272724091973853, guid: df0297d79766ffd4a8fe24ede164efed,
+    type: 3}
 --- !u!114 &1735123194672151440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +294,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -309,3 +314,15 @@ CapsuleCollider2D:
   m_Offset: {x: -0.011464357, y: -0.08712137}
   m_Size: {x: 0.41377318, y: 0.7429712}
   m_Direction: 0
+--- !u!114 &2420888944921477225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930310567461121232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229d2697be26a254bb393d6a9ea055a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

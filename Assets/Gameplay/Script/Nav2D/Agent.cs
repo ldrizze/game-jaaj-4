@@ -115,11 +115,5 @@ namespace Nav2D
 			// stores calculated speed based on movement
 			velocity = new Vector3(deltaX, deltaY, 0) / Time.deltaTime;
 		}
-
-		private void OnDrawGizmosSelected()
-		{
-			Gizmos.color = new Color(0, 1, 0, .25f);
-			Gizmos.DrawWireSphere(transform.position, radius);
-		}
 	}
 }
