@@ -128,6 +128,7 @@ public class Priest : MonoBehaviour
             case PriestType.Purple:
                 m_an.SetInteger("Color", 1);
                 displayName = "Acuos Bentus";
+                speed = 2;
                 health = 90;
                 damage = 34;
                 faith = 66;
@@ -135,6 +136,7 @@ public class Priest : MonoBehaviour
             case PriestType.Blue:
                 m_an.SetInteger("Color", 2);
                 displayName = "Biblicus";
+                speed = 7;
                 health = 110;
                 damage = 12;
                 faith = 33;

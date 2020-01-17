@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Nav2D;
 
 namespace AI
 {
@@ -7,19 +8,29 @@ namespace AI
         [SerializeField]
         float time = 1;
 
+        [SerializeField]
+        float fieldOfView = 1f;
+
         Priest priest = null;
+        Agent m_ag = null;
         float elapsedTime = 0;
 
         private void Start()
         {
             priest = GetComponent<Priest>();
+            m_ag = GetComponent<Agent>();
         }
 
         private void Update()
         {
+            AttackLoop();
+        }
+
+        void AttackLoop()
+        {
             elapsedTime += Time.deltaTime;
 
-            if(elapsedTime > time)
+            if (elapsedTime > time)
             {
                 elapsedTime = 0;
                 Attack();
@@ -33,6 +44,12 @@ namespace AI
 
             priest.Melee();
 
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, fieldOfView);
         }
     }
 }
