@@ -20,6 +20,19 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Button retryButton = null;
 
+    [SerializeField]
+    GameObject player = null;
+
+    [SerializeField]
+    CameraFollow m_camera = null;
+
+    public static GameManager Instance { get; set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         if (DontDestroy.Instance)
@@ -86,5 +99,15 @@ public class GameManager : MonoBehaviour
 
         gameOverPanel.gameObject.SetActive(false);
         evtSystem.SetSelectedGameObject(null);
+    }
+
+    public void ChangeCameraTarget(Transform m_transform)
+    {
+        m_camera.target = m_transform;
+    }
+
+    public void ChangeCameraTarget()
+    {
+        m_camera.target = player.transform;
     }
 }

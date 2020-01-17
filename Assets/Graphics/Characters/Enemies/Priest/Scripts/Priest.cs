@@ -271,6 +271,8 @@ public class Priest : MonoBehaviour
         {
             p.gameObject.SetActive(false);
             playerControllable = true;
+
+            GameManager.Instance.ChangeCameraTarget(transform);
         }
     }
 

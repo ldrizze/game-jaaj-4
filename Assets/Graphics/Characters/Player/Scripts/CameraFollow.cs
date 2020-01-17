@@ -4,28 +4,12 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    private Transform myTarget;
-    public GameObject myGO;
+    public Transform target;
 
-    void Start()
-    {
-        myTarget = myGO.transform;
-    }
-    
     void LateUpdate()
     {
-        if (!myGO.activeSelf)
-        {
-            myTarget = GameObject.FindGameObjectWithTag("Target").GetComponent<Transform>();
-        }
-        else
-        {
-            //myGO = GameObject.FindGameObjectWithTag("Player");
-            myTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        }
-
-        Vector3 player = myTarget.position;
-        player.z = transform.position.z;
-        transform.position = player;
+        Vector3 newPos = target.position;
+        newPos.z = transform.position.z;
+        transform.position = newPos;
     }
 }
