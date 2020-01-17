@@ -22,6 +22,9 @@ namespace AI
         [SerializeField]
         GameObject target = null;
 
+        [SerializeField]
+        float avoidanceDistance = 2f;
+
         private void Start()
         {
             priest = GetComponent<Priest>();
@@ -44,7 +47,8 @@ namespace AI
 
             m_previousPosition = transform.position;
 
-            if(Vector2.Distance(transform.position, target.transform.position) > 2f)
+            // while he is not close enough chase the target
+            if(Vector2.Distance(transform.position, target.transform.position) > avoidanceDistance)
                 transform.position = Vector2.MoveTowards(transform.position, target.transform.position, Time.deltaTime * priest.speed * speedLimit);
 
             float deltaX = transform.position.x - m_previousPosition.x,
@@ -85,9 +89,15 @@ namespace AI
         {
             elapsedTime += Time.deltaTime;
 
+            if (!target)
+                return;
+
+            if (Vector2.Distance(transform.position, target.transform.position) > avoidanceDistance)
+                return;
+
             if (elapsedTime > time)
             {
-                elapsedTime = 0;
+                elapsedTime -= time;
                 Attack();
             }
         }

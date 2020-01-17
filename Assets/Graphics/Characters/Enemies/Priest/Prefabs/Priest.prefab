@@ -194,6 +194,7 @@ MonoBehaviour:
     type: 3}
   deathEffectPrefab: {fileID: 1452272724091973853, guid: df0297d79766ffd4a8fe24ede164efed,
     type: 3}
+  possessedColor: {r: 0.60784316, g: 0, b: 1, a: 1}
 --- !u!114 &1735123194672151440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +225,7 @@ MonoBehaviour:
   speedLimit: 0.75
   fieldOfView: 1
   target: {fileID: 0}
+  avoidanceDistance: 1.5
 --- !u!212 &5930310567461121234
 SpriteRenderer:
   m_ObjectHideFlags: 0

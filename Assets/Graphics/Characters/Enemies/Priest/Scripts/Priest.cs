@@ -59,6 +59,10 @@ public class Priest : MonoBehaviour
     [SerializeField]
     GameObject deathEffectPrefab = null;
 
+    [SerializeField]
+    Color possessedColor = Color.red;
+
+    Color naturalColor = Color.white;
     Vector2 move = Vector2.zero;
     Rigidbody2D m_rb = null;
     SpriteRenderer m_sp = null;
@@ -115,6 +119,19 @@ public class Priest : MonoBehaviour
         {
             Transform t = Instantiate(deathEffectPrefab).transform;
             t.position = transform.position;
+        }
+
+        if(playerControllable)
+        {
+            GameObject p = GameManager.Instance.player;
+
+            if (!p)
+                return;
+
+            p.transform.position = transform.position;
+            p.SetActive(true);
+
+            GameManager.Instance.ChangeCameraTarget();
         }
 
         Destroy(gameObject);
@@ -235,14 +252,18 @@ public class Priest : MonoBehaviour
         {
             gameObject.tag = "Player";
             punch.tag = "Player";
+
+            m_sp.color = possessedColor;
         }
         else
         {
             gameObject.tag = "Enemy";
             punch.tag = "Enemy";
+
+            m_sp.color = naturalColor;
         }
 
-        if(m_ai)
+        if (m_ai)
             m_ai.enabled = !playerControllable;
     }
 
@@ -304,6 +325,8 @@ public class Priest : MonoBehaviour
             Gizmos.DrawLine(prev, waypoint);
             prev = waypoint;
         }
+
+        m_sp.color = possessedColor;
     }
 }
 

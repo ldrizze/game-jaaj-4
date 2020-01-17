@@ -20,8 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Button retryButton = null;
 
-    [SerializeField]
-    GameObject player = null;
+    public GameObject player = null;
 
     [SerializeField]
     CameraFollow m_camera = null;
