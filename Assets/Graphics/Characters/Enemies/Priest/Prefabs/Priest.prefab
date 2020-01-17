@@ -142,11 +142,11 @@ GameObject:
   - component: {fileID: 5930310567461121235}
   - component: {fileID: 5930310567461121236}
   - component: {fileID: 1735123194672151440}
+  - component: {fileID: 2420888944921477225}
   - component: {fileID: 5930310567461121234}
   - component: {fileID: 5930310567461121233}
   - component: {fileID: 5930310567461121238}
   - component: {fileID: 5930310567461121237}
-  - component: {fileID: 2420888944921477225}
   m_Layer: 0
   m_Name: Priest
   m_TagString: Untagged
@@ -208,6 +208,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.25
   speed: 5
+--- !u!114 &2420888944921477225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930310567461121232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229d2697be26a254bb393d6a9ea055a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 1
+  speedLimit: 0.75
+  fieldOfView: 1
+  target: {fileID: 0}
 --- !u!212 &5930310567461121234
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -314,15 +330,3 @@ CapsuleCollider2D:
   m_Offset: {x: -0.011464357, y: -0.08712137}
   m_Size: {x: 0.41377318, y: 0.7429712}
   m_Direction: 0
---- !u!114 &2420888944921477225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930310567461121232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 229d2697be26a254bb393d6a9ea055a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

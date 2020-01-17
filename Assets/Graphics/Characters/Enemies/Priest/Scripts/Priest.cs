@@ -44,9 +44,8 @@ public class Priest : MonoBehaviour
     /// <summary>
     /// This is how fast the priest moves in meters per second, in other words tiles per second.
     /// </summary>
-    [SerializeField]
     [Tooltip("This is how fast the priest moves in meters per second, in other words tiles per second.")]
-    float speed = 10f;
+    public float speed = 10f;
 
     [SerializeField]
     Transform punch = null;
@@ -128,25 +127,29 @@ public class Priest : MonoBehaviour
             case PriestType.Purple:
                 m_an.SetInteger("Color", 1);
                 displayName = "Acuos Bentus";
-                speed = 2;
+                speed = 3.5f;
                 health = 90;
                 damage = 34;
                 faith = 66;
+                m_ai.fieldOfView = 2f;
                 break;
             case PriestType.Blue:
                 m_an.SetInteger("Color", 2);
                 displayName = "Biblicus";
-                speed = 7;
+                speed = 5;
                 health = 110;
                 damage = 12;
                 faith = 33;
+                m_ai.fieldOfView = 4f;
                 break;
             case PriestType.Green:
                 m_an.SetInteger("Color", 3);
                 displayName = "Cruztos";
+                speed = 2;
                 health = 100;
                 damage = 17;
                 faith = 1;
+                m_ai.fieldOfView = 3f;
                 break;
             default:
                 break;

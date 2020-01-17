@@ -66,6 +66,7 @@ namespace Nav2D
 		public Vector3 Velocity
 		{
 			get { return velocity;  }
+            set { velocity = value; }
 		}
 
 		public Vector3[] Path

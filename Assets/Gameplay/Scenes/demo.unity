@@ -325,12 +325,12 @@ PrefabInstance:
     - target: {fileID: 5930310567461121235, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.61
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121235, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03
+      value: -0.39
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121235, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
@@ -431,14 +431,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.0015772871
     width: 1
-    height: 1
+    height: 0.9968454
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.81
+  orthographic size: 4.9375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -450,7 +450,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -2289,6 +2289,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2420888944921477225, guid: fb0273ac0631f554691fa84bad5a1d11,
+        type: 3}
+      propertyPath: fieldOfView
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121232, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: m_Name
@@ -2302,7 +2307,7 @@ PrefabInstance:
     - target: {fileID: 5930310567461121235, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5799994
+      value: 4.54
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121235, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
@@ -2386,7 +2391,7 @@ PrefabInstance:
     - target: {fileID: 5930310567461121235, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6099997
+      value: 3.51
       objectReference: {fileID: 0}
     - target: {fileID: 5930310567461121235, guid: fb0273ac0631f554691fa84bad5a1d11,
         type: 3}
