@@ -62,6 +62,9 @@ public class Priest : MonoBehaviour
     [SerializeField]
     Color possessedColor = Color.red;
 
+    [SerializeField]
+    GameObject possessedEffect = null;
+
     Color naturalColor = Color.white;
     Vector2 move = Vector2.zero;
     Rigidbody2D m_rb = null;
@@ -265,6 +268,9 @@ public class Priest : MonoBehaviour
 
         if (m_ai)
             m_ai.enabled = !playerControllable;
+
+        if (possessedEffect)
+            possessedEffect.SetActive(playerControllable);
     }
 
     public void Melee()
